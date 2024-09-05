@@ -16,11 +16,22 @@ class MiController extends Controller {
 
 
      public function create(){
+      $produs=productos::all();
+      return view("tienda/articulos", compact("produs"));
+      
 
      }
 
-     public function store(Request $request){
+     public function store(Request $request, $id){
+       $produ=productos::find($id);
+       
+       usuarios::create([
+         'nombre'=>$request->nombre,
+         'articulo_id'=>$produ->id,
+         'cantidad'=>$request->cantidad,
+         'total'=>($produ->precio),
 
+       ]);
      }
 
      public function update ($id){
@@ -31,17 +42,31 @@ class MiController extends Controller {
 
      }
 
-     /* public function indexProducto(){
-      
-      
-     } */
+     public function indexProducto($id){
+
+
+      $produ=productos::find($id);
+
+      return view("tienda/agregarArticulo", compact('produ'));
+         
+     }
 
 
      public function createProducto(){
 
+
+        return view("tienda/nuevoArticulo");
      }
 
      public function storeProducto(Request $request){
+         productos::create([
+            'articulo'=>$request->articulo,
+            'precio'=>$request->precio,
+         ]);
+
+         $produs=productos::all();
+         return view("tienda/articulos", compact("produs"));
+
 
      }
 
