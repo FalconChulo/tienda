@@ -11,7 +11,7 @@ class usuarios extends Model
 {
 
     protected $table = 'public.usuario';
-    protected $fillable = ['nombre','cantidad'];
+    protected $fillable = ['nombre', 'articulo_id', 'cantidad', 'total'];
 
 
 }

@@ -11,7 +11,10 @@ use App\Models\usuarios;
 class MiController extends Controller {  
     public function index(){
       
-      return view("tienda/inicio");
+      $users=usuarios::all();
+      $produs=productos::all();
+
+        return view("tienda/inicio", compact("users", "produs"));
      }
 
 
@@ -29,9 +32,13 @@ class MiController extends Controller {
          'nombre'=>$request->nombre,
          'articulo_id'=>$produ->id,
          'cantidad'=>$request->cantidad,
-         'total'=>($produ->precio),
-
+         'total'=>($produ->precio*($request->cantidad)),
        ]);
+
+         $users=usuarios::all();
+         $produs=productos::all();
+ 
+         return view("tienda/inicio", compact("users", "produs"));
      }
 
      public function update ($id){
@@ -39,6 +46,9 @@ class MiController extends Controller {
      }
 
      public function delete($id){
+
+      usuarios::find($id)->delete();
+      return redirect()->route('crud.index');
 
      }
 
@@ -75,6 +85,9 @@ class MiController extends Controller {
      }
 
      public function deleteProducto($id){
+
+      productos::find($id)->delete();
+      return redirect()->route('crud.create');
 
      }
 

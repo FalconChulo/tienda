@@ -34,6 +34,10 @@
                         {{-- <a href="{{route('', $item->id)}}" type="button">agregar a tu lista</a> --}}
                         <a href="{{route('crud.indexProducto', $item->id)}}" type="button">agregar a tu lista</a>
                     </td>
+                    <td>
+                        {{-- <a href="{{route('', $item->id)}}" type="button">agregar a tu lista</a> --}}
+                        <a href="{{route('crud.deleteProducto', $item->id)}}" type="button">eliminar</a>
+                    </td>
                 </tr>
                 @endforeach
             </table>
