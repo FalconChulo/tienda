@@ -28,6 +28,7 @@ class MiController extends Controller {
      public function store(Request $request, $id){
        $produ=productos::find($id);
        
+
        usuarios::create([
          'nombre'=>$request->nombre,
          'articulo_id'=>$produ->id,
@@ -42,6 +43,27 @@ class MiController extends Controller {
      }
 
      public function update ($id){
+      $user=usuarios::where('id', $id)->first();
+      $produs=productos::all();
+
+      return view("tienda/editarUsuario", compact("user", "produs"));
+     }
+
+     public function storeUpdate(Request $request, $id){
+
+      usuarios::find($id)->update([
+        'nombre'=>$request->nombre,
+        'articulo_id'=>($request->producto),
+        'cantidad'=>($request->cantidad),
+      ]);
+
+      $users=usuarios::all();
+      $produs=productos::all();
+
+      return view("tienda/inicio", compact("users", "produs"));
+
+      
+      
 
      }
 
@@ -81,6 +103,10 @@ class MiController extends Controller {
      }
 
      public function updateProducto ($id){
+
+     }
+
+     public function storeUpdateProducto ($id){
 
      }
 

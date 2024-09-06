@@ -11,30 +11,34 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>tiendita</title></title>
 </head>
-<body style="display: flex; justify-content: center; ">
-    <div class="card" style="width: 50rem; display: flex;" >
+<body style="display: flex; justify-content: center; align-items: center; ">
+    
+    <div>
+        <div class="card" style=" box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; width: 40rem; height: 40rem;" >
     
         @php
             $total = 0;
         @endphp
+
+        <div class="card-header">
+            <a href="{{route('crud.create')}}">
+                <button class="btn btn-light">añadir articulo</button>
+            </a>
+        </div>
     
-        <div class="card-body" style="display: flex; flex-direction:column">
-            <div >
-                <a href="{{route('crud.create')}}">
-                    <button class="btn btn-light">añadir articulo</button>
-                </a>
-            </div>
+        <div class="card-body" style="display: flex; flex-direction:column; justify-content:space-between">
+            
             @if($users->isEmpty())
                 <h1>no tienes productos en tu lista</h1>
             @else
-            <table>
+            <table class="table">
                 <thead>
-                    <td>#</td>
-                    <td>nombre</td>
-                    <td>articulo</td>
-                    <td>precio</td>
-                    <td>cantidad</td>
-                    <td>total</td>
+                    <td scope="col">#</td>
+                    <td scope="col">nombre</td>
+                    <td scope="col">articulo</td>
+                    <td scope="col">precio</td>
+                    <td scope="col">cantidad</td>
+                    <td scope="col">total</td>
                 </thead>
                 @foreach($users as $item)
                     @php
@@ -58,11 +62,11 @@
                         <td>{{$item->total}}</td>
                         <td>
                             {{-- <a href="{{route('', $item->id)}}" type="button">agregar a tu lista</a> --}}
-                            <a href="{{route('crud.indexProducto', $item->id)}}" type="button">editar</a>
+                            <a class="btn btn-secondary" href="{{route('crud.update', $item->id)}}" type="button">editar</a>
                         </td>
                         <td>
                             {{-- <a href="{{route('', $item->id)}}" type="button">agregar a tu lista</a> --}}
-                            <a href="{{route('crud.delete', $item->id)}}" type="button">eliminar</a>
+                            <a class="btn btn-danger" href="{{route('crud.delete', $item->id)}}" type="button">eliminar</a>
                         </td>
                     </tr>
                 @endforeach
@@ -70,6 +74,7 @@
             <p class="fw-lighter">total a pagar: {{$total}}</p>
             @endif
         </div>
+    </div>
     </div>
     
 </body>
