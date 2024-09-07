@@ -12,26 +12,36 @@
         <div class="card-header" style="display: flex; justify-content: space-between;">
             <h1>editar</h1>
 
-            <a href="{{route('crud.index')}}">
+            <a href="{{route('crud.create')}}">
                 <button class="btn btn-light fw-light" style="margin-top: 10px;" >regresar</button>
             </a>
         </div>
 
         <div class="card-body" style="display: flex; flex-direction:column; justify-content:space-between">
-
-            <form action ="{{route('crud.storeUpdate', $user->id)}}" method="post">
+    
+            <form action ="{{route('crud.storeUpdateProducto', $produ->id)}}" method="post">
                 {{csrf_field()}}
                 {{-- <input type="hidden" name="id" value="{{$user->id}}"/> --}}
-                <div class="row" style="margin-left: 70px">
-                    <div class="col-3">
-                        <div class="form-group">
-                            <label for="nombre">Nombre</label>
-                            <input class="form-control" type="text" id="nombre" name="nombre" value="{{$user->nombre}}"/>
+                <div class="row" >
+
+                    <div style="display: flex; justify-content: space-evenly;">
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input class="form-control" type="text" id="nombre" name="nombre" value="{{$produ->articulo}}" required/>
+                            </div>
+                        </div>
+    
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label for="precio">Precio</label>
+                                <input min="1" class="form-control" type="number" id="precio" name="precio" value="{{$produ->precio}}" required/>
+                            </div>
                         </div>
                     </div>
 
 
-                    @foreach($produs as $item2)
+                   {{--  @foreach($produs as $item2)
                         @php
                             if($item2->id==$user->articulo_id){
                                 $nombreArticulo=$item2->articulo;
@@ -43,9 +53,9 @@
                     <div class="col-3">
                         <div class="form-group">
                             <label for="producto">Producto</label>
-                            {{-- <input class="form-control" type="text" id="producto" value="{{$nombreArticulo}}"/> --}}
+                         
                             <select class="form-select" id="producto" name="producto">
-                                {{-- <option value="{{$nombreArticulo}}">{{$nombreArticulo}}</option> --}}
+                               
                                 @foreach($produs as $item)
                                     <option value="{{$item->id}}" @if($item->id==$user->articulo_id) selected @endif>{{$item->articulo}}</option>
                                 @endforeach
@@ -61,11 +71,7 @@
                             <input min="1" name="cantidad" class="form-control" type="number" id="cantidad" value="{{$user->cantidad}}"/>
                         </div>
                     </div>
-
-                    
-
-
-                </div>
+                </div> --}}
                 
                 <div style="padding:40px; display: flex; flex-direction:column; justify-content:space-between;">
                     <button class="btn btn-secondary" type="submit">enviar</button>

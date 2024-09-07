@@ -19,6 +19,7 @@ class MiController extends Controller {
 
 
      public function create(){
+
       $produs=productos::all();
       return view("tienda/articulos", compact("produs"));
       
@@ -55,6 +56,7 @@ class MiController extends Controller {
         'nombre'=>$request->nombre,
         'articulo_id'=>($request->producto),
         'cantidad'=>($request->cantidad),
+        'total'=>(($request->producto)*$request->cantidad),
       ]);
 
       $users=usuarios::all();
@@ -104,16 +106,34 @@ class MiController extends Controller {
 
      public function updateProducto ($id){
 
+      $produ=productos::where('id', $id)->first();
+
+      return view("tienda/editarProducto", compact("produ"));
+
      }
 
-     public function storeUpdateProducto ($id){
+     public function storeUpdateProducto (Request $request, $id){
+
+      productos::find($id)->update([
+        "articulo"=> $request->nombre,
+        "precio"=> $request->precio,
+      ]);
+
+      $produs=productos::all();
+      return view("tienda/articulos", compact("produs"));
 
      }
 
      public function deleteProducto($id){
 
-      productos::find($id)->delete();
-      return redirect()->route('crud.create');
+      try{
+        productos::find($id)->delete();
+        return redirect()->route('crud.create');
+
+      }catch (\Exception $e){
+        $err='error wue';
+        return redirect()->route('crud.create')->withErrors($err);
+      }
 
      }
 

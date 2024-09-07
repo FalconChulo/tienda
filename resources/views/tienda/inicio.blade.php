@@ -31,6 +31,7 @@
             @if($users->isEmpty())
                 <h1>no tienes productos en tu lista</h1>
             @else
+            {{-- <p>{{$produs}}</p> --}}
             <table class="table">
                 <thead>
                     <td scope="col">#</td>

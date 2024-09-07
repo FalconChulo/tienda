@@ -11,6 +11,6 @@ Route::get('/delete/{id}','App\Http\Controllers\MiController@delete')->name('cru
 Route::get('indexProducto/{id}','App\Http\Controllers\MiController@indexProducto')->name('crud.indexProducto');
 Route::get('/createProducto','App\Http\Controllers\MiController@createProducto')->name('crud.createProducto');
 Route::post('/storeProducto','App\Http\Controllers\MiController@storeProducto')->name('crud.storeProducto');
-Route::get('/updateProducto','App\Http\Controllers\MiController@updateProducto')->name('crud.updateProducto');
-Route::get('/storeUpdateProducto','App\Http\Controllers\MiController@storeUpdateProducto')->name('crud.storeUpdateProducto');
+Route::get('/updateProducto{id}','App\Http\Controllers\MiController@updateProducto')->name('crud.updateProducto');
+Route::post('/storeUpdateProducto/{id}','App\Http\Controllers\MiController@storeUpdateProducto')->name('crud.storeUpdateProducto');
 Route::get('/deleteProducto/{id}','App\Http\Controllers\MiController@deleteProducto')->name('crud.deleteProducto');

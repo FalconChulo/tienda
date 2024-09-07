@@ -9,7 +9,14 @@
 </head>
 <body style="display: flex; justify-content: center; align-items: center; ">
 
+    {{-- @if($e){
+        <p>{{$e}}</p>
+    }
+    @endif --}}
+    
+
     <div class="card" style=" box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; width: 40rem; height: 40rem;">
+        
 
     <div class="card-header" style= "display: flex; justify-content:space-between">
         <a href="{{route('crud.createProducto')}}">
@@ -45,7 +52,11 @@
                     </td>
                     <td>
                         {{-- <a href="{{route('', $item->id)}}" type="button">agregar a tu lista</a> --}}
-                        <a class="btn btn-danger" href="{{route('crud.deleteProducto', $item->id)}}" type="button">eliminar</a>
+                        <a class="btn btn-secondary" href="{{route('crud.updateProducto', $item->id)}}" type="button">editar</a>
+                    </td>
+                    <td>
+                        {{-- <a href="{{route('', $item->id)}}" type="button">agregar a tu lista</a> --}}
+                        <a class="btn btn-danger" href="{{route('crud.deleteProducto', $item->id)}}" type="button" {{-- style="pointer-events: none;" --}}>eliminar</a>
                     </td>
                 </tr>
                 @endforeach
@@ -55,6 +66,11 @@
         @endif
         
     </div>
+    @if($errors->any())
+        <div class="alert alert-danger" role="alert" style="margin:10px">
+            <p>error, el articulo que intentas eliminar está en la lista de compra de un usuario, no puede borrarse</p>
+        </div>
+    @endif
     </div>
 </body>
 </html>
