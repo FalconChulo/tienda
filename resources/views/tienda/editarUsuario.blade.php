@@ -58,7 +58,7 @@
                     <div class="col-3">
                         <div class="form-group">
                             <label for="cantidad">cantidad</label>
-                            <input min="1" name="cantidad" class="form-control" type="number" id="cantidad" value="{{$user->cantidad}}"/>
+                            <input min="1" max="100" name="cantidad" class="form-control" type="number" id="cantidad" value="{{$user->cantidad}}"/>
                         </div>
                     </div>
 

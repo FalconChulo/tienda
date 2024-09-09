@@ -24,8 +24,8 @@
             <form action="{{route('crud.storeProducto')}}" method="post">
                 {{csrf_field()}}
                 <div class="form-group;" style="display: flex; flex-direction:column; justify-content:space-between;">
-                    <input  class='form-control' name='articulo' type="text" placeholder="nombre del articulo" style="margin:10px;" required>
-                    <input min="1" class='form-control' name='precio' type="number" placeholder="precio del articulo" style="margin:10px;" required>
+                    <input  maxlenght="20" class='form-control' name='articulo' type="text" placeholder="nombre del articulo" style="margin:10px;" required>
+                    <input min="1" max="100" class='form-control' name='precio' type="number" placeholder="precio del articulo" style="margin:10px;" required>
                     
                 </div>
                 <div style="padding:40px; display: flex; flex-direction:column; justify-content:space-between;" >

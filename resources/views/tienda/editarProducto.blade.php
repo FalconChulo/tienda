@@ -35,7 +35,7 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="precio">Precio</label>
-                                <input min="1" class="form-control" type="number" id="precio" name="precio" value="{{$produ->precio}}" required/>
+                                <input min="1" max="100" class="form-control" type="number" id="precio" name="precio" value="{{$produ->precio}}" required/>
                             </div>
                         </div>
                     </div>

@@ -23,7 +23,7 @@
                 {{csrf_field()}}
                 <div class="form-group;" style="display: flex; flex-direction:column; justify-content:space-between;">
                     <input class='form-control' type="text" name="nombre" placeholder="Tu nombre..." style="margin:10px;" required>
-                    <input min="1" class='form-control' type="number" name="cantidad" placeholder="cantidad de {{$produ->articulo}}"  style="margin:10px;" required>
+                    <input min="1" max="100" class='form-control' type="number" name="cantidad" placeholder="cantidad de {{$produ->articulo}}"  style="margin:10px;" required>
                 </div>
                 <div style="padding:40px; display: flex; flex-direction:column; justify-content:space-between;">
                     <button class="btn btn-secondary" type='submit'>guardar</button>
