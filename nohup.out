@@ -1,0 +1,4 @@
+PHP Warning:  require(/home/pruebaconceptofalcon1/tienda/vendor/autoload.php): failed to open stream: No such file or directory in /home/pruebaconceptofalcon1/tienda/artisan on line 18
+PHP Fatal error:  require(): Failed opening required '/home/pruebaconceptofalcon1/tienda/vendor/autoload.php' (include_path='.:/usr/share/php') in /home/pruebaconceptofalcon1/tienda/artisan on line 18
+PHP Warning:  require(/home/pruebaconceptofalcon1/tienda/vendor/autoload.php): failed to open stream: No such file or directory in /home/pruebaconceptofalcon1/tienda/artisan on line 18
+PHP Fatal error:  require(): Failed opening required '/home/pruebaconceptofalcon1/tienda/vendor/autoload.php' (include_path='.:/usr/share/php') in /home/pruebaconceptofalcon1/tienda/artisan on line 18
